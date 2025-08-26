@@ -10,7 +10,7 @@ function on_start
         echo ""
         set_color $color_art
         figlet (whoami)
-	set_color normal
+	    set_color normal
         echo ""
 
         fastfetch
