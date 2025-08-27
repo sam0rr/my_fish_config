@@ -10,8 +10,8 @@ function b3check
     end
 
     if not type -q b3sum
-        echo "Error: b3sum not found. Install on Debian:"
-        echo "  sudo apt update && sudo apt install -y b3sum"
+        echo "Error: b3sum not found. Install on Arch/CachyOS:"
+        echo "  sudo pacman -S b3sum"
         return 1
     end
 
@@ -25,7 +25,8 @@ function b3check
     end
 
     function __size_bytes --argument file
-        stat -Lc %s -- $file 2>/dev/null
+        # GNU coreutils on Arch: use -c (lowercase). -- to stop option parsing.
+        stat -c %s -- $file 2>/dev/null
     end
 
     function __now_ns
@@ -80,6 +81,9 @@ function b3check
         end
 
         set -l secs (math "$elapsed_ns / 1e9")
+        if test "$secs" = "0"
+            set secs 0.000001
+        end
         set -l mbps (math --scale 2 "($size/1048576)/$secs")
 
         if test -n "$h" -a "$h" = "$ref_hash"
