@@ -1,2 +1,2 @@
 my_fish_config
-(arch)
+(for arch)
