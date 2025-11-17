@@ -1,3 +1,10 @@
+# color_picker.fish
+# Simple YAD-based color picker for Fish:
+# - Stores selected hex colors in ~/.local/share/color_picker/history_colors
+# - Rebuilds a YAD palette (~/.local/share/color_picker/palette.txt) from history
+# - Shows colors in YAD with Name = "RGB: r,g,b"
+# - Copies the picked hex color to the clipboard and sends a desktop notification
+
 function _color_picker_ensure_deps
     if not type -q gum
         echo "gum is not installed. Installing with paru..."
@@ -38,7 +45,7 @@ function _color_picker_pick
         --center \
         --on-top \
         --width=400 \
-        --height=350 \
+        --height=360 \
         --fixed)
 
     echo (string trim "$color")
@@ -82,7 +89,8 @@ function _color_picker_rebuild_palette
         set -l g (printf '%d' 0x(string sub -s 3 -l 2 -- "$raw"))
         set -l b (printf '%d' 0x(string sub -s 5 -l 2 -- "$raw"))
 
-        printf "%d %d %d %s\n" $r $g $b "$hex" >> $palette_file
+        set -l name "RGB: $r,$g,$b"
+        printf "%d %d %d %s\n" $r $g $b $name >> $palette_file
     end
 end
 
@@ -98,11 +106,11 @@ function _color_picker_feedback
     echo
 
     if type -q notify-send
-        notify-send -u critical "Color copied" "$color"
+        notify-send "Color copied" "$color"
     end
 end
 
-function color_picker
+function _internal_color_picker
     _color_picker_ensure_deps
 
     set -l state_dir ~/.local/share/color_picker
@@ -126,4 +134,8 @@ function color_picker
     _color_picker_update_history $color $history_file
     _color_picker_rebuild_palette $history_file $palette_file
     _color_picker_feedback $color
+end
+
+function color_picker
+    _internal_color_picker
 end
