@@ -1,3 +1,3 @@
-function gr --wraps='gtrash restore-group' --wraps='gtrash rm' --wraps='gtrash prune' --description 'alias gr=gtrash prune'
-    gtrash prune $argv
+function gr --wraps='gtrash restore-group' --description 'alias gr=gtrash restore-group'
+    gtrash restore-group $argv
 end
