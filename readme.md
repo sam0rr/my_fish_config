@@ -35,8 +35,5 @@ source ~/.config/fish/config.fish
 - `image-open <file>` – checks MIME type and previews supported images inline using `kitty +kitten icat`. Requires Kitty and the `file` command.
 - `ls` – alias to `eza -lah --icons --git` for an icon-filled directory view with Git info.
 - `rm` – safety wrapper; shows a warning and exits. Use `command rm …` for actual deletion.
+- `g` – alias to `gtrash` for quick access to the gtrash CLI.
 - `gp` – alias to `gtrash put --rm-mode -r` to send files or directories to gtrash recursively while preserving restore info.
-- `gf` – alias to `gtrash find` for searching trashed items by name or pattern.
-- `gr` – alias to `gtrash restore-group` to restore items together when they were trashed as a group.
-- `gm` – alias to `gtrash metafix` to repair gtrash metadata if paths move.
-- `gd` – alias to `gtrash prune` for cleaning up old or orphaned trash entries.
