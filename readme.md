@@ -32,7 +32,6 @@ source ~/.config/fish/config.fish
 - `on_start` – installs `figlet`/`fastfetch` if missing, prints a figlet banner of your username, and runs `fastfetch` on shell open.
 - `ls` – alias to `eza -lah --icons --git` for an icon-filled directory view with Git info.
 - `rm` – safety wrapper; shows a warning and exits. Use `command rm …` for actual deletion.
-- `trash` – alias to `gtrash`, with completions bundled.
 - `b3check [--print-hash] <ref_file> <file2> [file3 ...]` – hash the reference file with BLAKE3 and compare one or more targets, optionally showing the hash and transfer speed. Requires `b3sum`.
 - `color_picker` – launches a YAD/Gum color picker, stores history in `~/.local/share/color_picker/`, rebuilds a palette, copies the hex code to the clipboard, and sends a desktop notification. Needs `gum`, `yad`, and optionally `notify-send`.
 - `image-open <file>` – checks MIME type and previews supported images inline using `kitty +kitten icat`. Requires Kitty and the `file` command.
