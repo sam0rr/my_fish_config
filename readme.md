@@ -1,4 +1,3 @@
-
 # my_fish_config
 
 ### Copy and paste in your terminal emulator :
@@ -14,7 +13,7 @@ git clone https://github.com/sam0rr/my_fish_config ~/.config/fish
 source ~/.config/fish/config.fish
 ```
 
-### Usage 
+### Usage
 
 - `b3check [--print-hash] <ref_file> <file2> [file3 ...]` – hash the reference file with BLAKE3 and compare
   one or more targets, optionally printing the matching hash and transfer speed.
