@@ -1,7 +1,7 @@
 on_start
 
-#Init Zoxide (z)
-zoxide init fish | source
+#Init Zoxide (cd)
+zoxide init fish --cmd cd | source
 mise activate fish | source
 
 # Auto-set FLUTTER_ROOT based on whichever flutter is active
