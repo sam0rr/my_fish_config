@@ -2,7 +2,7 @@ function b3check
     set -l print_hash 0
     set -l files
     for a in $argv
-        if test "$a" = "--print-hash"
+        if test "$a" = --print-hash
             set print_hash 1
         else
             set files $files $a
@@ -54,7 +54,7 @@ function b3check
         echo "  $ref_hash"
     end
     echo ""
-    echo "-----------------------------------"
+    echo -----------------------------------
     echo ""
 
     set -l match 0
@@ -81,7 +81,7 @@ function b3check
         end
 
         set -l secs (math "$elapsed_ns / 1e9")
-        if test "$secs" = "0"
+        if test "$secs" = 0
             set secs 0.000001
         end
         set -l mbps (math --scale 2 "($size/1048576)/$secs")
@@ -107,7 +107,7 @@ function b3check
         end
     end
 
-    echo "-----------------------------------"
+    echo -----------------------------------
     echo ""
     echo "Summary:"
     echo "  $match MATCH"

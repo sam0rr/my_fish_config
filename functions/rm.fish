@@ -1,6 +1,6 @@
 function rm --wraps rm --description 'Warn before destructive rm; use command rm for deletion'
     if count $argv >/dev/null
-        if contains -- '-h' $argv; or contains -- '--help' $argv
+        if contains -- -h $argv; or contains -- --help $argv
             command rm $argv
             return $status
         end

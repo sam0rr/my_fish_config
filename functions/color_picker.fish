@@ -70,14 +70,14 @@ function _color_picker_update_history
         set new_history $new_history[1..$history_max]
     end
 
-    printf "%s\n" $new_history > $history_file
+    printf "%s\n" $new_history >$history_file
 end
 
 function _color_picker_rebuild_palette
     set -l new_history_file $argv[1]
     set -l palette_file $argv[2]
 
-    echo -n "" > $palette_file
+    echo -n "" >$palette_file
 
     for hex in (cat $new_history_file)
         set -l raw (string replace -r '^#' '' "$hex")
@@ -90,7 +90,7 @@ function _color_picker_rebuild_palette
         set -l b (printf '%d' 0x(string sub -s 5 -l 2 -- "$raw"))
 
         set -l name "RGB: $r,$g,$b"
-        printf "%d %d %d %s\n" $r $g $b $name >> $palette_file
+        printf "%d %d %d %s\n" $r $g $b $name >>$palette_file
     end
 end
 

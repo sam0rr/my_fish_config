@@ -13,7 +13,7 @@ function script --description 'Create a new executable bash script'
         return 1
     end
 
-    echo "#!/usr/bin/env bash" > $filename
+    echo "#!/usr/bin/env bash" >$filename
     chmod +x $filename
     echo ""
     echo "Created executable script: $filename"
