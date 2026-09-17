@@ -6,9 +6,13 @@ function sysupdate
     mise up --yes --bump
 
     echo ""
-    npx --yes t3@latest service update
+    npx --yes t3@latest service install
+    echo ""
+    npx --yes t3@latest update --yes
     echo ""
     npx --yes t3@latest connect
+    echo ""
+    npx --yes t3@latest service status
     echo ""
     npx --yes t3@latest connect status
 
