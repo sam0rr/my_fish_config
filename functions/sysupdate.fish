@@ -6,15 +6,15 @@ function sysupdate
     mise up --yes --bump
 
     echo ""
-    npx --yes t3@latest service install
+    t3 service install
     echo ""
-    npx --yes t3@latest update --yes
+    t3 update --yes
     echo ""
-    npx --yes t3@latest connect
+    t3 connect
     echo ""
-    npx --yes t3@latest service status
+    t3 service status
     echo ""
-    npx --yes t3@latest connect status
+    t3 connect status
 
     echo ""
     echo "sysupdate done -> system is up to date"
