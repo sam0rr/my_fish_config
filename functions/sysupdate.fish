@@ -12,6 +12,8 @@ function sysupdate
     echo ""
     t3 connect
     echo ""
+    t3 doctor --fix
+    echo ""
     t3 service status
     echo ""
     t3 connect status
